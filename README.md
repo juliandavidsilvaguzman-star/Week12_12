@@ -30,3 +30,20 @@ Transformer (V:40) - MSE 0.0470: Tuvo el error más alto. Los Transformers son m
 
 # 4. Visualización Final
 Las gráficas comparativas muestran que el LSTM sigue mucho más de cerca las curvas reales del set de prueba, mientras que el Transformer produce una predicción más suavizada pero menos precisa para este volumen de datos.
+
+# Conclusiones y Resultados Finales
+
+Tras completar el desarrollo y los experimentos con la serie de tiempo **Air Passengers**, se extraen las siguientes conclusiones:
+
+### 1. Comparativa de Rendimiento (MSE)
+*   **LSTM (V:40)**: Fue el modelo con mejor desempeño (~0.0275). Su arquitectura recurrente es ideal para series cortas con patrones claros.
+*   **Atención (V:40)**: Mostró resultados muy competitivos (~0.0299), probando que ponderar pasos temporales clave es una estrategia robusta.
+*   **Transformer (V:40)**: Tuvo el error más alto (~0.0470). Debido al tamaño limitado del dataset (144 registros), el Transformer no pudo aprovechar su capacidad de atención multi-cabezal sin sobreajustar.
+
+### 2. Impacto de la Ventana Temporal (WINDOW_SIZE)
+*   Aumentar la ventana de **40 a 60** pasos resultó en una degradación del rendimiento (MSE aumentó a ~0.0316).
+*   **Lección aprendida**: Ventanas más grandes no siempre son mejores. En datasets pequeños, una ventana más grande reduce la cantidad de ejemplos de entrenamiento disponibles, lo que puede perjudicar la capacidad de aprendizaje del modelo.
+
+### 3. Consideraciones Técnicas
+*   **Sesgo Inductivo**: Las RNNs (como LSTM) tienen un sesgo hacia la secuencialidad que las hace más eficientes en problemas con pocos datos comparado con los Transformers, que son arquitecturas 'data-hungry' (hambrientas de datos).
+*   **Normalización**: El uso de escalado Min-Max fue fundamental para estabilizar el entrenamiento de todas las arquitecturas.

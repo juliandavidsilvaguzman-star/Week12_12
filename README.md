@@ -1,4 +1,10 @@
-# Week12_12
+# Week12_12 Implementación del Mecanismo de Atención para Series de Tiempo y un Transformer Básico en Google Colab 
+# Integrantes: 
+
+DIEGO ALEJANDRO RUIZ ALFONSO - ppmurcia@ucundinamarca.edu.co 
+PEDRO PASCUAL MURCIA VARGAS - ppmurcia@ucundinamarca.edu.co 
+JHON EDUARD TINJACA CRUZ - jetinjaca@ucundinamarca.edu.co 
+JULIAN DAVID SILVA GUZMAN - jdsilva@ucundinamarca.edu.co
 
 # 1. Preparación de Datos
 Carga del Dataset: Se importa el conjunto de datos histórico de pasajeros de líneas aéreas internacionales. Es una serie de tiempo clásica que muestra tendencia y estacionalidad.

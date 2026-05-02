@@ -6,6 +6,25 @@ PEDRO PASCUAL MURCIA VARGAS - ppmurcia@ucundinamarca.edu.co
 JHON EDUARD TINJACA CRUZ - jetinjaca@ucundinamarca.edu.co 
 JULIAN DAVID SILVA GUZMAN - jdsilva@ucundinamarca.edu.co
 
+# Librerías y Funciones Especiales Utilizadas
+
+El proyecto se apoya en el ecosistema de **TensorFlow** y herramientas estándar de ciencia de datos:
+
+### 1. Librerías Principales
+*   **TensorFlow / Keras**: Para la construcción y entrenamiento de redes neuronales.
+*   **NumPy**: Para manipulación de arreglos y generación de datos sintéticos.
+*   **Pandas**: Para la carga de datos (CSV) y manejo de tablas de resultados.
+*   **Matplotlib**: Para todas las visualizaciones y gráficas de series de tiempo.
+
+### 2. Funciones y Capas Especiales
+*   **`AttentionLayer` (Personalizada)**: Una clase que hereda de `tf.keras.layers.Layer` para implementar el mecanismo de atención manual usando pesos entrenables y activación `tanh`.
+*   **`MultiHeadAttention`**: Capa de Keras que permite al modelo atender a múltiples subespacios de la secuencia en paralelo (corazón del Transformer).
+*   **`LSTM`**: Capa recurrente con celdas de memoria para capturar dependencias a largo plazo.
+*   **`LayerNormalization`**: Utilizada para estabilizar el entrenamiento en el Transformer.
+*   **`GlobalAveragePooling1D`**: Para reducir la dimensión temporal de la secuencia a un vector fijo antes de la capa final.
+*   **`MinMaxScaler` (Lógica manual)**: Implementada para normalizar la serie entre 0 y 1, asegurando que el MSE sea comparable entre modelos.
+
+
 # 1. Preparación de Datos
 Carga del Dataset: Se importa el conjunto de datos histórico de pasajeros de líneas aéreas internacionales. Es una serie de tiempo clásica que muestra tendencia y estacionalidad.
 Normalización: Se aplica el escalado Min-Max para transformar los valores al rango [0, 1]. Esto es crucial para que las funciones de activación de las redes neuronales (como la tanh o sigmoid) funcionen de manera óptima.
